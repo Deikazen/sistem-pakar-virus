@@ -1,9 +1,12 @@
 from fastapi import APIRouter, HTTPException
 
 # Membuat instance APIRouter khusus untuk user
-router = APIRouter()
+router = APIRouter(
+    prefix="/artikel",
+    tags=["Artikel"]
+)
 
 
-@router.get("/artikel")
+@router.get("/")
 def artikel_page():
     return "Ini adalah artikel edukasi page"
