@@ -16,4 +16,13 @@ class SkriningInput(BaseModel):
 
 @router.get("/")
 def gejala_page():
-    return "Ini adalah gejala page"
+    gejala = [
+        {
+            "G01": "Demam",
+            "G02": "Batuk",
+            "G03": "Sesak Napas",
+            "G04": "Pilek",
+        }
+    ]
+
+    return gejala
