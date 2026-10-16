@@ -37,5 +37,6 @@ def skrining_proses(payload: SkriningInput):
             "nama": nama,
             "usia": usia,
             "jenis_kelamin": jenis_kelamin
-        }
+        },
+        "gejala": daftar_gejala,
     }
