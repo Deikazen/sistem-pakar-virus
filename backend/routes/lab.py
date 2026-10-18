@@ -7,6 +7,6 @@ router = APIRouter(
 )
 
 
-@router.get("/lab")
+@router.get("/")
 def latar_page():
     return "Ini adalah laboratorium page"
