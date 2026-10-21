@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,12 +31,9 @@ function App() {
   if (loading) return <p>Loading data...</p>;
 
   return (
-    <>
-      <div>
-        <h1>Respons from backend</h1>
-        <p>{data}</p>
-      </div>
-    </>
+    <div className="App">
+      <Home data={data} />
+    </div>
   );
 }
 
