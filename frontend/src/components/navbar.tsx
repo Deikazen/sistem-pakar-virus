@@ -1,42 +1,12 @@
-export default function Navbar() {
-  return (
-    <nav
-      style={{
-        display: "flex",
-        gap: "10px",
-        padding: "10px",
-      }}
-    >
-      <ol
-        style={{
-          listStyleType: "none",
-          paddingLeft: 0, // Menghilangkan spasi kosong bawaan <ol> di sebelah kiri
-          margin: 0, // Menghilangkan margin bawaan
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start", // Memaksa semua item <li> rata di sisi kiri
-          gap: "30px",
-        }}
-      >
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/latar">Latar Belakang</a>
-        </li>
-        <li>
-          <a href="/metodologi">Metodologi</a>
-        </li>
-        <li>
-          <a href="/artikel">Artikel</a>
-        </li>
-        <li>
-          <a href="/skrining">Skrining</a>
-        </li>
-        <li>
-          <a href="/rekomendasi">Rekomendasi Lab</a>
-        </li>
-      </ol>
-    </nav>
-  );
+const links = [
+  ["/", "Beranda", "⌂"],
+  ["/latar-belakang", "Latar Belakang", "○"],
+  ["/metodologi", "Metodologi", "◇"],
+  ["/artikel-edukasi", "Artikel Edukasi", "▤"],
+  ["/skrining-awal", "Skrining Awal", "✓"],
+  ["/rekomendasi-lab", "Rekomendasi Lab", "⌕"],
+];
+
+export default function Navbar({ active, open, onNavigate }: { active: string; open: boolean; onNavigate: () => void }) {
+  return <aside className={`sidebar ${open ? "open" : ""}`}><nav aria-label="Navigasi utama">{links.map(([href, label, icon]) => <a onClick={onNavigate} href={href} className={`nav-link ${active === href ? "active" : ""}`} key={href}><span className="nav-icon">{icon}</span><span>{label}</span></a>)}</nav><div className="side-help"><b>Butuh bantuan?</b><span>Informasi ini bukan pengganti konsultasi dokter.</span></div></aside>;
 }
